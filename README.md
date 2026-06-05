@@ -8,7 +8,7 @@ Europe and beyond. Our mission is to remove barriers to education through open
 technologies, community-driven content, multilingual resources, and collaborative
 partnerships.
 
-🌐 **Live site:** <https://openlearneurope.github.io/courses/>
+🌐 **Live site:** <https://vectorscientificcomputing.github.io/education/>
 
 ## Courses
 
@@ -22,8 +22,8 @@ Each course includes an introduction, preparation instructions, and hands-on exe
 
 ## Building the site locally
 
-The site is built with [MkDocs](https://www.mkdocs.org/) via the `properdocs`
-distribution. It's tested with Python 3.13, but 3.10+ works.
+The site is built with [Zensical](https://zensical.org/), the successor to
+Material for MkDocs. It's tested with Python 3.13, but 3.10+ works.
 
 ```bash
 # create and activate a virtual environment
@@ -34,50 +34,56 @@ source .venv/bin/activate
 pip install -r requirements.txt
 
 # preview locally with live reload
-properdocs serve -f properdocs.yml
+zensical serve
 ```
 
-Then open <http://127.0.0.1:8000/courses/> (the site is served under `/courses/`).
+Then open <http://localhost:8000>.
 
 To produce a static build instead of serving:
 
 ```bash
-properdocs build -f properdocs.yml
+zensical build
 ```
+
+The generated site is written to the `site/` directory.
 
 If you prefer [uv](https://docs.astral.sh/uv/), the equivalent setup is:
 
 ```bash
-uv venv --python "$(cat .python)" .venv
+uv venv --python 3.13 .venv
 source .venv/bin/activate
 uv pip install -r requirements.txt
 ```
 
 ## Checking before you push
 
-The CI lints YAML and Markdown on every push and pull request. To catch issues
-locally first, run the same checks:
+The build itself is the check — if it compiles locally, it will compile in CI.
+Run it before pushing:
 
 ```bash
-pip install yamllint pymarkdownlnt
-yamllint -c config/yamllint.yml properdocs.yml config/
-pymarkdown --config config/pymarkdown.yml scan docs/
+zensical build --clean
 ```
 
-No output means everything passed.
+`No issues found` means you're good to go. To stop a broken build from ever
+reaching GitHub, chain the steps so nothing is committed unless the build passes:
+
+```bash
+zensical build --clean && git add . && git commit -m "your message" && git push
+```
 
 ## Deployment
 
 Deployment is automatic. Every push to `main` triggers the GitHub Actions workflow in
-`.github/workflows/deploy.yml`, which lints, builds, and publishes the site to GitHub
-Pages. Pull requests run the lint and build steps as a check but do not deploy.
+`.github/workflows/deploy.yml`, which checks the required files, builds the site with
+Zensical, and publishes it to GitHub Pages. Pull requests run the check and build steps
+as validation but do not deploy.
 
 ## Contributing
 
 Contributions are welcome — from educators, developers, students, researchers,
 translators, and designers. Open an issue or a pull request at
-<https://github.com/OpenLearnEurope/courses>. Course material lives under `docs/`, and
-the site structure is defined in `properdocs.yml`.
+<https://github.com/VectorScientificComputing/education>. Course material lives under
+`docs/`, and the site structure is defined in `mkdocs.yml`.
 
 ## Licence
 
