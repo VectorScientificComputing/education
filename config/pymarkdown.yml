@@ -1,0 +1,14 @@
+---
+plugins:
+  line-length:
+    enabled: false
+  no-inline-html:
+    enabled: false
+  first-line-h1:
+    enabled: false
+  no-duplicate-heading:
+    siblings_only: true
+  code-block-style:
+    enabled: false
+  list-marker-space:
+    enabled: false

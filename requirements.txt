@@ -1,0 +1,7 @@
+# Zensical bundles the Material theme, search, and glightbox natively,
+# so this single dependency replaces the whole previous MkDocs stack
+# (properdocs, mkdocs-materialx, and the plugin packages).
+#
+# Zensical is currently in alpha and updates often; pin a version here
+# if you want fully reproducible builds, e.g. zensical==0.0.44
+zensical
