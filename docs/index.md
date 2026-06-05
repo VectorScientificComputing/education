@@ -1,8 +1,6 @@
-# Learning Without Borders Europe
+# Open Education for Everyone, Everywhere 
 
-**Open Education for Everyone, Everywhere.**
-
-Learning Without Borders Europe is an open-source educational initiative dedicated to providing free, accessible, and high-quality learning opportunities for people across Europe and beyond.
+Vector Scientific Computing Education is an open-source educational initiative dedicated to providing free, accessible, and high-quality learning opportunities for people across Europe and beyond.
 
 Our mission is to remove barriers to education through open technologies, community-driven content, multilingual resources, and collaborative partnerships.
 
