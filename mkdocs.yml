@@ -1,5 +1,5 @@
 ---
-site_name: Vector Scientific Computing 
+site_name: Vector Scientific Computing - Education
 site_description: Open Education for Everyone, Everywhere. Free, accessible, open-source learning resources for people across Europe and beyond.
 site_url: https://vectorscientificcomputing.github.io/education/
 
@@ -168,7 +168,7 @@ extra:
       name: Contact us on GitHub
 
 copyright: >-
-  Copyright &copy; 2026 Vector Scientific Computing —
+  Copyright &copy; 2026 Vector Scientific Computing Education —
   content under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a>,
   code under the <a href="https://eupl.eu/" target="_blank" rel="noopener">EUPL-1.2</a>
 

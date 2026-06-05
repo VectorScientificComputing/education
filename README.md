@@ -1,8 +1,8 @@
-# Learning Without Borders Europe
+# Vector Scientific Computing - Education
 
 **Open Education for Everyone, Everywhere.**
 
-Learning Without Borders Europe is an open-source educational initiative dedicated to
+Vector Scientific Computing - Education is an open-source educational initiative dedicated to
 providing free, accessible, and high-quality learning opportunities for people across
 Europe and beyond. Our mission is to remove barriers to education through open
 technologies, community-driven content, multilingual resources, and collaborative
@@ -33,19 +33,12 @@ source .venv/bin/activate
 # install dependencies
 pip install -r requirements.txt
 
-# preview locally with live reload
+# live preview with auto-reload at http://localhost:8000
 zensical serve
-```
 
-Then open <http://localhost:8000>.
-
-To produce a static build instead of serving:
-
-```bash
+# or produce a static build into the site/ directory
 zensical build
 ```
-
-The generated site is written to the `site/` directory.
 
 If you prefer [uv](https://docs.astral.sh/uv/), the equivalent setup is:
 
@@ -57,7 +50,7 @@ uv pip install -r requirements.txt
 
 ## Checking before you push
 
-The build itself is the check — if it compiles locally, it will compile in CI.
+The build is the check — if it compiles locally, it will compile in CI.
 Run it before pushing:
 
 ```bash
@@ -89,8 +82,8 @@ translators, and designers. Open an issue or a pull request at
 
 - **Educational content** (everything under `docs/`) is licensed under
   [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/) —
-    you are free to share and adapt it, as long as you give appropriate credit.
-    - **Code** (build scripts, configuration, tooling) is licensed under the
-      [European Union Public Licence v1.2 (EUPL-1.2)](https://eupl.eu/).
+  you are free to share and adapt it, as long as you give appropriate credit.
+- **Code** (build scripts, configuration, tooling) is licensed under the
+  [European Union Public Licence v1.2 (EUPL-1.2)](https://eupl.eu/).
 
 See the [`LICENSE`](LICENSE) file for the full text.
