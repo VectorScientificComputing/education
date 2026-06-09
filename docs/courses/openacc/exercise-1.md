@@ -1,4 +1,4 @@
-# ompute Constructs
+## Compute Constructs
 
 In this initial exercise, we will explore the process of offloading computational tasks to a device, specifically the GPU (Graphics Processing Unit). The primary objective of OpenACC is to streamline this offloading using its dedicated APIs.
 
