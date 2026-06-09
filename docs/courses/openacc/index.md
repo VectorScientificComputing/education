@@ -1,7 +1,7 @@
 # Introduction to OpenACC for Heterogeneous Computing
 
 <figure markdown>
-  [![Introduction to OpenACC programming](figures/OpenACC-Front-Page-2026-April.png)](files/Training_OpenACC_EuroCC_April_2026.pdf)
+  [![Introduction to OpenACC programming](figures/OpenACC-Front-Page-2026-June.png)](files/Training_OpenACC_2026_June.pdf)
 <figcaption></figcaption>
 </figure>
 
