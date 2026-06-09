@@ -77,12 +77,12 @@ drwxr-s---. 2 u100490 p201351 4.0K Mar 13 15:50 Unified-memory
 Until now, you are in the login node; now it is time to do the dry run test. Reserve the interactive node for running/testing OpenACC applications.
 
 ```console
-salloc -A p201351 --res gpu-openacc-morning --partition=gpu --qos default -N 1 -t 01:00:00
+salloc -A p201351 --res p201351-gpu --partition=gpu --qos default -N 1 -t 01:00:00
 ```
 
 ??? "check if your reservation is allocated"
     ```
-    [u100490@login03 ~]$ salloc -A p201351 --res gpu-openacc-morning --partition=gpu --qos default -N 1 -t 01:00:00
+    [u100490@login03 ~]$ salloc -A p201351 --res p201351-gpu --partition=gpu --qos default -N 1 -t 01:00:00
     salloc: Pending job allocation 296848
     salloc: job 296848 queued and waiting for resources
     salloc: job 296848 has been allocated resources
@@ -160,12 +160,12 @@ Hello World from GPU!
 Similarly, for the hands-on session, we need reserve a node. For example:
 
 ```console
-salloc -A p201351 --res gpu-openacc-afternoon --partition=gpu --qos default -N 1 -t 02:30:00
+salloc -A p201351 --res p201351-gpu --partition=gpu --qos default -N 1 -t 02:30:00
 ```
 
 ??? "check if your reservation is allocated"
     ```
-    [u100490@login03 ~]$ salloc -A p201351 --res gpu-openacc-afternoon --partition=gpu --qos default -N 1 -t 02:30:00
+    [u100490@login03 ~]$ salloc -A p201351 --res p201351-gpu --partition=gpu --qos default -N 1 -t 02:30:00
     salloc: Pending job allocation 296848
     salloc: job 296848 queued and waiting for resources
     salloc: job 296848 has been allocated resources
