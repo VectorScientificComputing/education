@@ -103,33 +103,33 @@ Here are the steps for learning the vector addition example:
 
 - Vector addition kernel function call definition
 
-  ??? "vector addition function call"
+??? "vector addition function call"
 
-      === "Serial-version"
-          ```c
-          // CPU function that adds two vector
-          void Vector_Addition(float *a, float *b, float *c, int n)
-          {
-            for(int i = 0; i < n; i ++)
-              {
-                c[i] = a[i] + b[i];
-              }
-          }
-          ```
-
-      === "OpenACC-version"
-          ```c
-          // function that adds two vector
-          void Vector_Addition(float *restrict a, float *restrict b, float *restrict c, int n)
-          {
-          #pragma acc kernels loop copyin(a[0:n], b[0:n]) copyout(c[0:n])
-          for(int i = 0; i < n; i ++)
+    === "Serial-version"
+        ```c
+        // CPU function that adds two vector
+        void Vector_Addition(float *a, float *b, float *c, int n)
+        {
+          for(int i = 0; i < n; i++)
             {
               c[i] = a[i] + b[i];
             }
-          }
-          ```
+        }
+        ```
 
+    === "OpenACC-version"
+        ```c
+        // function that adds two vector
+        void Vector_Addition(float *restrict a, float *restrict b, float *restrict c, int n)
+        {
+          #pragma acc kernels loop copyin(a[0:n], b[0:n]) copyout(c[0:n])
+          for(int i = 0; i < n; i++)
+            {
+              c[i] = a[i] + b[i];
+            }
+        }
+        ```
+	  
 <figure markdown>
 ![](figures/vector_add-external-modified.svg)
 <figcaption></figcaption>

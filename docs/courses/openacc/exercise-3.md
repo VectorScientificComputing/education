@@ -80,19 +80,19 @@ Next, we will examine a basic example of matrix multiplication, a computation th
         void Matrix_Multiplication(float *restrict a, float *restrict b, float *restrict c, int width)
         {
           int length = width*width;
-          float sum = 0;
         #pragma acc parallel copyin(a[0:(length)], b[0:(length)]) copyout(c[0:(length)])
-        #pragma acc loop collapse(2) reduction (+:sum)
+        #pragma acc loop collapse(2) 
          for(int row = 0; row < width ; ++row)
             {
               for(int col = 0; col < width ; ++col)
                 {
+                float sum = 0.0f;
+                #pragma acc loop reduction(+:sum)
                   for(int i = 0; i < width ; ++i)
                     {
                       sum += a[row*width+i] * b[i*width+col];
                     }
                   c[row*width+col] = sum;
-                  sum=0;
                 }
             }
         }
@@ -188,19 +188,18 @@ Next, we will examine a basic example of matrix multiplication, a computation th
         void Matrix_Multiplication(float *restrict a, float *restrict b, float *restrict c, int width)
         {
           int length = width*width;
-          float sum = 0;
         //#pragma acc ....
         //#pragma acc ....
          for(int row = 0; row < width ; ++row)
             {
               for(int col = 0; col < width ; ++col)
                 {
+                float sum = 0.0f; 
                   for(int i = 0; i < width ; ++i)
                     {
                       sum += a[row*width+i] * b[i*width+col];
                     }
                   c[row*width+col] = sum;
-                  sum=0;
                 }
             }
         }
@@ -275,110 +274,78 @@ Next, we will examine a basic example of matrix multiplication, a computation th
     === "OpenACC-version"
 
         ```c
-        #include<stdio.h>
-        #include<stdlib.h>
-        #include<openacc.h>
-        #include<stdbool.h>
+        #include <stdio.h>
+        #include <stdlib.h>
+        #include <stdbool.h>
+        #include <openacc.h>
 
-        void Matrix_Multiplication(float *restrict a, float *restrict b, float *restrict c, int width)
+        void Matrix_Multiplication(float *restrict a, float *restrict b,
+                                   float *restrict c, int width)
         {
-          int length = width*width;
-          float sum = 0;
-        #pragma acc parallel copyin(a[0:(length)], b[0:(length)]) copyout(c[0:(length)])
-        #pragma acc loop collapse(2) reduction (+:sum)
-         for(int row = 0; row < width ; ++row)
-            {
-              for(int col = 0; col < width ; ++col)
-                {
-                  for(int i = 0; i < width ; ++i)
-                    {
-                      sum += a[row*width+i] * b[i*width+col];
+            int length = width * width;
+        #pragma acc parallel loop collapse(2) \
+            copyin(a[0:length], b[0:length]) copyout(c[0:length])
+            for (int row = 0; row < width; ++row) {
+                for (int col = 0; col < width; ++col) {
+                    float sum = 0.0f; 
+        #pragma acc loop reduction(+:sum)
+                    for (int i = 0; i < width; ++i) {
+                        sum += a[row*width + i] * b[i*width + col];
                     }
-                  c[row*width+col] = sum;
-                  sum=0;
+                    c[row*width + col] = sum;
                 }
             }
         }
 
-
-        // Host call (matrix multiplication)
         void CPU_Matrix_Multiplication(float *h_a, float *h_b, float *h_c, int width)
         {
-          for(int row = 0; row < width ; ++row)
-            {
-              for(int col = 0; col < width ; ++col)
-                {
-                  float single_entry = 0;
-                  for(int i = 0; i < width ; ++i)
-                    {
-                      single_entry += h_a[row*width+i] * h_b[i*width+col];
+            for (int row = 0; row < width; ++row) {
+                for (int col = 0; col < width; ++col) {
+                    float single_entry = 0.0f;
+                    for (int i = 0; i < width; ++i) {
+                        single_entry += h_a[row*width + i] * h_b[i*width + col];
                     }
-                  h_c[row*width+col] = single_entry;
+                    h_c[row*width + col] = single_entry;
                 }
             }
         }
 
-
-        int main()
+        int main(void)
         {
+            printf("Programme assumes that matrix (square matrix) size is N*N\n");
+            printf("Please enter the N size number\n");
 
-          cout << "Programme assumes that matrix (square matrix) size is N*N "<<endl;
-          cout << "Please enter the N size number "<< endl;
-          int N = 0;
-          cin >> N;
-
-          // Initialize the memory on the host
-          float *a, *b, *c, *host_check;
-
-          // Initialize the memory on the device
-          float *d_a, *d_b, *d_c;
-
-          // Allocate host memory
-          a   = (float*)malloc(sizeof(float) * (N*N));
-          b   = (float*)malloc(sizeof(float) * (N*N));
-          c   = (float*)malloc(sizeof(float) * (N*N));
-          host_check = (float*)malloc(sizeof(float) * (N*N));
-
-          // Initialize host matrix
-          for(int i = 0; i < (N*N); i++)
-            {
-              a[i] = 2.0f;
-              b[i] = 2.0f;
+            int N = 0;
+            if (scanf("%d", &N) != 1 || N <= 0) {
+                printf("Invalid size\n");
+                return 1;
             }
 
-          // Device function call
-          Matrix_Multiplication(d_a, d_b, d_c, N);
+            float *a          = (float*)malloc(sizeof(float) * N * N);
+            float *b          = (float*)malloc(sizeof(float) * N * N);
+            float *c          = (float*)malloc(sizeof(float) * N * N);
+            float *host_check = (float*)malloc(sizeof(float) * N * N);
 
-          // cpu computation for verification
-          CPU_Matrix_Multiplication(a,b,host_check,N);
-
-          // Verification
-          bool flag=1;
-          for(int i = 0; i < N; i++)
-            {
-             for(int j = 0; j < N; j++)
-               {
-                 if(c[j*N+i]!= host_check[j*N+i])
-                   {
-                     flag=0;
-                     break;
-                   }
-               }
+            for (int i = 0; i < N*N; ++i) {
+                a[i] = 2.0f;
+                b[i] = 2.0f;
             }
-          if (flag==0)
-            {
-              cout <<"Two matrices are not equal" << endl;
+
+            Matrix_Multiplication(a, b, c, N);          /* pass the HOST arrays */
+            CPU_Matrix_Multiplication(a, b, host_check, N);
+
+            bool equal = true;
+            for (int i = 0; i < N*N; ++i) {
+                if (c[i] != host_check[i]) {
+                    equal = false;
+                    break;
+                }
             }
-          else
-            cout << "Two matrices are equal" << endl;
 
-          // Deallocate host memory
-          free(a);
-          free(b);
-          free(c);
-          free(host_check);
+            printf(equal ? "Two matrices are equal\n" : "Two matrices are not equal\n");
 
-          return 0;
+            free(a); free(b); free(c); free(host_check);
+            return 0;
         }
         ```
 
