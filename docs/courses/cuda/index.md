@@ -9,23 +9,25 @@
 
 Participants from this course will learn GPU programming using the CUDA programming model, which includes synchronisation, memory allocation, and device and host calls. Furthermore, understanding the GPU architecture and how parallel threads blocks are used to parallelise the computational task. Moreover, the GPU is an accelerator; hence, there must be a good understanding of memory management between the GPU and CPU, which will also be discussed in detail. Finally, participants will also learn to use the CUDA programming model to accelerate linear algebra (routines) and iterative solvers on the GPU. Participants will learn theories first and implement the CUDA programming model with mentors' guidance later in the hands-on tutorial part.
 
+
 ## Learning outcomes
 
 After this course, participants will be able to:
 
 - Understanding the GPU architecture (and also the difference between GPU and CPU)
-  - Streaming architecture
-  - Threads blocks
+    - Streaming architecture
+    - Threads blocks
 - Implement the CUDA programming model
-  - Programming structure
-  - Device calls (threads block organisation)
-  - Host calls
+    - Programming structure
+    - Device calls (threads block organisation)
+    - Host calls
 - Efficient handling of memory management
-  - Host to Device
-  - Unified memory
+    - Host to Device
+    - Unified memory
 - Apply the CUDA programming knowledge to accelerate examples from science and engineering:
-  - Iterative solvers from science and engineering
-  - Matrix multiplication, vector addition, etc.
+    - Iterative solvers from science and engineering
+    - Matrix multiplication, vector addition, etc.
+    
 
 ## Prerequisites
 
