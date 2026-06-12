@@ -14,18 +14,18 @@ Participants from this course will learn GPU programming using the OpenACC progr
 After this course, participants will be able to:
 
 - Understanding the GPU architecture (and also the difference between GPU and CPU)
-  - Streaming architecture
-  - Threads blocks
+    - Streaming architecture
+    - Threads blocks
 - Implement the OpenACC programming model
-  - Compute constructs
-  - Loop constructs
+    - Compute constructs
+    - Loop constructs
   - Data clauses
 - Efficient handling of memory management
-  - Host to Device
-  - Unified memory
+    - Host to Device
+    - Unified memory
 - Apply the OpenACC programming knowledge to accelerate examples from science and engineering:
-  - Iterative solvers from science and engineering
-  - Vector multiplication, vector addition, etc.
+    - Iterative solvers from science and engineering
+    - Vector multiplication, vector addition, etc.
 
 ## Prerequisites
 

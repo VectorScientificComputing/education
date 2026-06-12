@@ -12,19 +12,19 @@ Participants from this course will learn Multicore (shared memory) CPU programmi
 After this course, participants will be able to:
 
 - Understanding the shared memory architecture
-  - Unified Memory Access (UMA) and Non-Unified Memory Access (NUMA)
-  - Hybrid distributed shared memory architecture
+    - Unified Memory Access (UMA) and Non-Unified Memory Access (NUMA)
+    - Hybrid distributed shared memory architecture
 - Implement OpenMP programming model
-  - Parallel region
-  - Environment routines
-  - Data sharing
+    - Parallel region
+    - Environment routines
+    - Data sharing
 - Efficient handling of OpenMP constructs
-  - Work sharing
-  - Synchronisation constructs
-  - Single Instruction Multiple Data (SIMD) directive
+    - Work sharing
+    - Synchronisation constructs
+    - Single Instruction Multiple Data (SIMD) directive
 - Apply the OpenMP programming knowledge to parallelise examples from science and engineering:
-  - Iterative solvers from science and engineering
-  - Vector multiplication, vector addition, etc.
+    - Iterative solvers from science and engineering
+    - Vector multiplication, vector addition, etc.
 
 ## Prerequisites
 
