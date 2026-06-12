@@ -31,8 +31,4 @@ After this course, participants will be able to:
 
 Priority will be given to users with good experience with C/C++ and/or FORTRAN. No GPU programming knowledge is required; however, knowing the OpenMP programming model is advantageous.
 
-## GPU Compute Resource
-
-Participants attending the event will be given access to the [MeluXina supercomputer](https://luxprovide.lu/) during the session. To learn more about MeluXina, please consult the Meluxina overview and the [MeluXina - Getting Started Guide](https://docs.lxp.lu/).
-
 <!--OpenACC_intro_end-->

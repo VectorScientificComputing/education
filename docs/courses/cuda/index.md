@@ -31,8 +31,4 @@ After this course, participants will be able to:
 
 Priority will be given to users with good experience with [C/C++](https://www.cprogramming.com/). No GPU programming knowledge is required; however, knowing some basic parallel programming concepts is advantageous but not necessary.
 
-## GPU Compute Resource
-
-Participants attending the event will be given access to the [MeluXina supercomputer](https://luxprovide.lu/) during the session. To learn more about MeluXina, please consult the Meluxina overview and the [MeluXina – Getting Started Guide](https://docs.lxp.lu/).
-
 <!--CUDA_intro_end-->

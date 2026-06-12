@@ -30,15 +30,4 @@ After this course, participants will be able to:
 
 Priority will be given to users with good experience with C/C++ and/or FORTRAN. No prior parallel programming experience is needed.
 
-## CPU Compute Resource
 
-Participants attending the event will be given access to the [MeluXina supercomputer](https://luxprovide.lu/) during the session.
-To learn more about MeluXina, please consult the Meluxina overview and the [MeluXina – Getting Started Guide](https://docs.lxp.lu/).
-
-### Course Organization and Registration
-
-Format - Online <br/>
-Previous event: 31st May, 2023 <br/>
-Next Event: 29th, October, 2024
-
-[Registration: 29th, October, 2024](https://supercomputing.lu/events){ .md-button .md-button--primary }
