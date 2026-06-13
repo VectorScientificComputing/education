@@ -23,7 +23,8 @@ nav:
           - GPU:
               - CUDA:
                   - Introduction: 'courses/cuda/index.md'
-                  - Preparation: 'courses/cuda/preparation.md'
+                  - Preparation-HPC: 'courses/cuda/preparation.md'
+                  - Preparation-Cloud: 'courses/cuda/google-gpu-colab-cuda-guide.md'
                   - Hands-on:
                       - Hello world: 'courses/cuda/exercise-1.md'
                       - Vector addition: 'courses/cuda/exercise-2.md'
@@ -69,14 +70,14 @@ theme:
       toggle:
         icon: material/brightness-7
         name: Switch to dark mode
-      primary: dark blue
-      accent: blue
+      primary: teal
+      accent: cyan
     - scheme: slate
       toggle:
         icon: material/brightness-4
         name: Switch to light mode
-      primary: dark blue
-      accent: blue
+      primary: teal
+      accent: cyan
   icon:
     admonition:
       note: octicons/tag-16

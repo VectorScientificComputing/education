@@ -129,8 +129,9 @@ th, td {
 }
 
 :root {
-    --md-primary-fg-color: #022658;
-    --md-primary-fg-color--light: #ECB7B7;
-    --md-primary-fg-color--dark: #90030C;
-    --md-slate-structureal-elements: #0077FF;
+  --md-primary-fg-color: #1E4FA1;      /* Krishna blue */
+  --md-primary-fg-color--light: #4F7AC7;
+  --md-primary-fg-color--dark: #12356E;
+
+  --md-accent-fg-color: #1E4FA1;       /* Sky blue accent */
 }
